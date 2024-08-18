@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Grilli - Amazing & Delicious Food</title>
+  <meta name="title" content="Grilli - Amazing & Delicious Food">
+  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/mission.css">
+  
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+
+  <style>
+    /* Ajout des styles spécifiques à la timeline */
+    .timeline-container {
+      width: 100%;
+      position: relative;
+      padding: 80px 0;
+      transition: .3s ease 0s;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .timeline-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 80px;
+      position: relative;
+    }
+
+    .timeline-header__title {
+      color: #fff;
+      font-size: 46px;
+      font-family: 'Cardo', serif;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .timeline-header__subtitle {
+      color: rgba(255, 255, 255, .5);
+      font-family: 'Pathway Gothic One', sans-serif;
+      font-size: 16px;
+      letter-spacing: 5px;
+      margin: 10px 0 0 0;
+      font-weight: normal;
+    }
+
+    .timeline {
+      display: flex;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      flex-direction: column;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .timeline:before {
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      margin-left: -1px;
+      content: "";
+      background: rgba(255, 255, 255, .07);
+    }
+
+    .timeline-item {
+      padding: 40px 0;
+      opacity: .3;
+      filter: blur(2px);
+      transition: .5s;
+      box-sizing: border-box;
+      width: calc(50% - 40px);
+      display: flex;
+      position: relative;
+      transform: translateY(-80px);
+    }
+
+    .timeline-item:before {
+      content: attr(data-text);
+      letter-spacing: 3px;
+      width: 100%;
+      position: absolute;
+      color: rgba(255, 255, 255, .5);
+      font-size: 13px;
+      font-family: 'Pathway Gothic One', sans-serif;
+      border-left: 2px solid rgba(255, 255, 255, .5);
+      top: 70%;
+      margin-top: -5px;
+      padding-left: 15px;
+      opacity: 0;
+      right: calc(-100% - 56px);
+    }
+
+    .timeline-item:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    .timeline-item:nth-child(even):before {
+      right: auto;
+      text-align: right;
+      left: calc(-100% - 56px);
+      padding-left: 0;
+      border-left: none;
+      border-right: 2px solid rgba(255, 255, 255, .5);
+      padding-right: 15px;
+    }
+
+    .timeline-item--active {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0px);
+    }
+
+    .timeline-item--active:before {
+      top: 50%;
+      transition: .3s all .2s;
+      opacity: 1;
+    }
+
+    .timeline__img {
+      max-width: 100%;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+    }
+
+    .timeline__content-title {
+      font-weight: normal;
+      font-size: 66px;
+      margin: -10px 0 0 0;
+      transition: .4s;
+      padding: 0 10px;
+      box-sizing: border-box;
+      font-family: 'Pathway Gothic One', sans-serif;
+      color: #fff;
+    }
+
+    .timeline__content-desc {
+      margin: 0;
+      font-size: 15px;
+      box-sizing: border-box;
+      color: rgba(255, 255, 255, .7);
+      font-family: 'Cardo', serif;
+      font-weight: normal;
+      line-height: 25px;
+    }
+
+    .demo-footer a {
+      color: #999;
+      display: inline-block;
+      font-family: 'Cardo', serif;
+    }
+
+    /* Responsive adjustments */
+    @media only screen and (max-width: 767px) {
+      .timeline:before {
+        left: 40px;
+      }
+
+      .timeline-item {
+        align-self: baseline !important;
+        width: 100%;
+        padding: 0 30px 150px 80px;
+      }
+
+      .timeline-item:before {
+        left: 10px !important;
+        padding: 0 !important;
+        top: 50px;
+        text-align: center !important;
+        width: 60px;
+        border: none !important;
+      }
+
+      .timeline-item:last-child {
+        padding-bottom: 40px;
+      }
+    }
+  </style>
+
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">Le Chocolatier Ivoirien</p>
+  </div>
+
+  <!-- 
+    - #TOP BAR
+  -->
+
+  <div class="topbar">
+    <div class="container">
+
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+          Présent à la station Africa des JO Paris 2024
+        </span>
+      </address>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">Daily : 8.00 am to 10.00 pm</span>
+      </div>
+
+      <a href="tel:+11234567890" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">+1 123 456 7890</span>
+      </a>
+
+      <div class="separator"></div>
+
+      <a href="mailto:booking@restaurant.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">booking@restaurant.com</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo-light.png" width="160" height="50" alt="Logo Clair" class="logo-img logo-light">
+        <img src="./assets/images/logo-dark.png" width="160" height="50" alt="Logo Sombre" class="logo-img logo-dark" style="display: none;">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="#" class="logo">
+          <img src="./assets/images/Icon.png" width="160" height="50" alt="Grilli - Home">
+        </a>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link hover-underline active">
+              <div class="separator"></div>
+
+              <span class="span">Accueil</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="./catalog/index.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Coffret</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="mission.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Notre mission</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="musee.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+              <span class="span">Musée du cacao</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Contact</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+
+          <address class="body-4">
+            Restaurant St, Delicious City, <br>
+            London 9578, UK
+          </address>
+
+          <p class="body-4 navbar-text">Ouvert: 14h - 22h</p>
+
+          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">lechocolatierivirien@gmail.com</a>
+
+          <div class="separator"></div>
+
+          <p class="contact-label">Contactez nous</p>
+
+          <a href="tel:+88123123456" class="body-1 contact-number hover-underline">
+            +337353737383
+          </a>
+        </div>
+
+      </nav>
+
+      <a href="#" class="btn btn-secondary">
+        <span class="text text-1">Membre</span>
+
+        <span class="text text-2" aria-hidden="true">Membre</span>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <!-- Intégration de la timeline -->
+      <section id="timeline-1" class="timeline-container">
+        <header class="timeline-header">
+          <h2 class="timeline-header__title">Mustafa Kemal Atatürk</h2>
+          <h3 class="timeline-header__subtitle">FATHER OF THE TURKS</h3>
+        </header>
+
+        <div class="timeline">
+          <div class="timeline-item" data-text="FATHER OF THE TURKS">
+            <div class="timeline__content">
+              <img class="timeline__img" src="http://i.cdn.ensonhaber.com/resimler/diger/ataturk_3473.jpg" alt="Atatürk 1881">
+              <h2 class="timeline__content-title">1881</h2>
+              <p class="timeline__content-desc">He was born in 1881 (probably in the spring) in Salonica, then an Ottoman city, now in Greece...</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-text="FATHER OF THE TURKS">
+            <div class="timeline__content">
+              <img class="timeline__img" src="http://gazetemanifesto.com/wp-content/uploads/2015/11/mustafa-kemal.jpg" alt="Atatürk 1893">
+              <h2 class="timeline__content-title">1893</h2>
+              <p class="timeline__content-desc">First enrolled in a traditional religious school, he soon switched to a modern school...</p>
+            </div>
+          </div>
+          <div class="timeline-item" data-text="FATHER OF THE TURKS">
+            <div class="timeline__content">
+              <img class="timeline__img" src="http://www.volpeypir.com/upload/3732.jpg" alt="Atatürk 1905">
+              <h2 class="timeline__content-title">1905</h2>
+              <p class="timeline__content-desc">In 1905, Mustafa Kemal graduated from the War Academy in Istanbul with the rank of Staff Captain...</p>
+            </div>
+          </div>
+          <!-- Ajoute d'autres éléments de la timeline ici -->
+        </div>
+
+        <footer class="demo-footer">
+          <a href="http://www.turkishnews.com/Ataturk/life.htm" target="_blank">Source/Kaynak</a>
+        </footer>
+      </section>
+    </article>
+  </main>
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer section has-bg-image text-center" style="background-image: url('./assets/images/footer-bg.jpg')">
+    <div class="container">
+
+      <div class="footer-top grid-list">
+
+        <div class="footer-brand has-before has-after">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="160" height="50" loading="lazy" alt="grilli home">
+          </a>
+
+          <address class="body-4">
+            Restaurant St, Delicious City, London 9578, UK
+          </address>
+
+          <a href="mailto:booking@grilli.com" class="body-4 contact-link">booking@grilli.com</a>
+
+          <a href="tel:+88123123456" class="body-4 contact-link">Booking Request : +88-123-123456</a>
+
+          <p class="body-4">Open : 09:00 am - 01:00 pm</p>
+
+          <div class="wrapper">
+            <div class="separator"></div>
+            <div class="separator"></div>
+            <div class="separator"></div>
+          </div>
+
+          <p class="title-1">Get News & Offers</p>
+
+          <p class="label-1">Subscribe us & Get <span class="span">25% Off.</span></p>
+
+          <form action="" class="input-wrapper">
+            <div class="icon-wrapper">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+
+              <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">
+              <span class="text text-1">Subscribe</span>
+              <span class="text text-2" aria-hidden="true">Subscribe</span>
+            </button>
+          </form>
+
+        </div>
+
+        <ul class="footer-list">
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Home</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Menus</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Our Chefs</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Contact</a>
+          </li>
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Facebook</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Instagram</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Twitter</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Youtube</a>
+          </li>
+          <li>
+            <a href="#" class="label-2 footer-link hover-underline">Google Map</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; 2022 Grilli. All Rights Reserved | Crafted by <a href="https://github.com/codewithsadee" target="_blank" class="link">codewithsadee</a>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+  <!-- JavaScript nécessaire -->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      const navbarLinks = document.querySelectorAll('.navbar-link');
+      const header = document.querySelector('.header');
+      const logoLight = document.querySelector('.logo-light');
+      const logoDark = document.querySelector('.logo-dark');
+
+      function updateNavbarColor() {
+        const bgColor = window.getComputedStyle(header).backgroundColor;
+
+        const rgb = bgColor.match(/\d+/g);
+        const brightness = Math.round(((parseInt(rgb[0]) * 299) +
+          (parseInt(rgb[1]) * 587) +
+          (parseInt(rgb[2]) * 114)) / 1000);
+
+        if (brightness > 150) {
+          navbarLinks.forEach(link => {
+            link.classList.remove('nav-light');
+            link.classList.add('nav-dark');
+          });
+          logoLight.style.display = 'none';
+          logoDark.style.display = 'block';
+        } else {
+          navbarLinks.forEach(link => {
+            link.classList.remove('nav-dark');
+            link.classList.add('nav-light');
+          });
+          logoLight.style.display = 'block';
+          logoDark.style.display = 'none';
+        }
+      }
+
+      updateNavbarColor();
+      window.addEventListener('scroll', updateNavbarColor);
+    });
+
+    // Timeline JavaScript encapsulation
+    (function($) {
+      $.fn.timeline = function() {
+        var selectors = {
+          id: $(this),
+          item: $(this).find(".timeline-item"),
+          activeClass: "timeline-item--active",
+          img: ".timeline__img"
+        };
+        selectors.item.eq(0).addClass(selectors.activeClass);
+        selectors.id.css(
+          "background-image",
+          "url(" +
+          selectors.item
+          .first()
+          .find(selectors.img)
+          .attr("src") +
+          ")"
+        );
+        var itemLength = selectors.item.length;
+        $(window).scroll(function() {
+          var max, min;
+          var pos = $(this).scrollTop();
+          selectors.item.each(function(i) {
+            min = $(this).offset().top;
+            max = $(this).height() + $(this).offset().top;
+            var that = $(this);
+            if (i == itemLength - 2 && pos > min + $(this).height() / 2) {
+              selectors.item.removeClass(selectors.activeClass);
+              selectors.id.css(
+                "background-image",
+                "url(" +
+                selectors.item
+                .last()
+                .find(selectors.img)
+                .attr("src") +
+                ")"
+              );
+              selectors.item.last().addClass(selectors.activeClass);
+            } else if (pos <= max - 40 && pos >= min) {
+              selectors.id.css(
+                "background-image",
+                "url(" +
+                $(this)
+                .find(selectors.img)
+                .attr("src") +
+                ")"
+              );
+              selectors.item.removeClass(selectors.activeClass);
+              $(this).addClass(selectors.activeClass);
+            }
+          });
+        });
+      };
+    })(jQuery);
+
+    // Initialize the timeline
+    $("#timeline-1").timeline();
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./js/script.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.carousel').carousel();
+    });
+  </script>
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/mission.js"></script>
+  
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
