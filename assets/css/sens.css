@@ -1,0 +1,86 @@
+.new-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #ffffff;
+  }
+  
+  .new-slider {
+    position: absolute;
+    top: 15vh;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 200px;
+    perspective-origin: 50% 100%;
+  }
+  
+  .new-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 500px;
+    border-radius: 10px;
+    transform: translate3d(-50%, -50%, 0px);
+    overflow: hidden;
+    background: #000;
+  }
+  
+  .new-card img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.75;
+  }
+  
+  .new-copy p {
+    position: relative;
+    text-align: center;
+    font-family: "PP Editorial Old";
+    font-size: 2vw;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    color: #dfe1c8;
+    margin-top: 1rem;
+    opacity: 2; /* Initialement invisible pour l'animation */
+  }
+  
+  
+  .new-copy h1 {
+    position: relative;
+    text-align: center;
+    font-family: "PP Editorial Old";
+    font-size: 3vw;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #dfe1c8;
+  }
+  
+  .new-copy h1 span {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .new-copy {
+    position: absolute;
+    top: 15%; /* Ajuste cette valeur pour placer le texte plus bas */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .section-title {
+    text-align: center;
+    font-family: "PP Editorial Old", serif;
+    font-size: 3vw;
+    font-weight: 500;
+    color: #000;
+    text-transform: uppercase;
+    margin-top: 80px;
+  }
+  
+  

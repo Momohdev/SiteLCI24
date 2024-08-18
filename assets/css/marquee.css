@@ -1,0 +1,101 @@
+:root {
+    --interactive-image-width: 50px; /* Nouvelle largeur des images */
+    --interactive-image-height: 250px; /* Nouvelle hauteur des images */
+  }  
+
+.interactive-marquees-section {
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 4em 0;
+  }
+  
+  .interactive-marquee-container {
+    position: relative;
+    width: 100%; /* Ajusté pour être similaire à la section hero */
+    max-width: 1200px; /* Limite la largeur maximale pour correspondre à la section hero */
+    height: 300px; /* Ajusté pour plus de hauteur */
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+    overflow: hidden;
+    margin-left: auto; /* Centrage de la section */
+    margin-right: auto; /* Centrage de la section */
+  }
+  
+  .interactive-marquee {
+    width: 100%; /* Largeur ajustée pour les images et le texte */
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 1em;
+  }
+  
+  #interactive-marquee-1 .interactive-marquee,
+  #interactive-marquee-4 .interactive-marquee {
+    left: -10%;
+  }
+  
+  .interactive-item {
+    flex: 0,1; /* Réduction de l'espace pour les images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0px;
+  }
+  
+  .interactive-item.with-text {
+    flex: 4;
+    width: 100px;
+  }
+  
+  .interactive-item h1 {
+    text-transform: uppercase;
+    font-size: 100px;
+    font-weight: 30;
+    color: #2c2d2a;
+  }
+  
+  @media (max-width: 900px) {
+    .interactive-marquees-section {
+      height: 100vh;
+    }
+  
+    .interactive-marquee-container {
+      width: 250%;
+      height: 150px;
+    }
+  
+    .interactive-item.with-text {
+      flex: 1;
+    }
+  
+    .interactive-item h1 {
+      font-size: 60px;
+    }
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  } 

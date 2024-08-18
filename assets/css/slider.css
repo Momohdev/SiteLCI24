@@ -1,0 +1,225 @@
+.custom-carousel-section {
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.custom-carousel .custom-list .custom-item {
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(1),
+.custom-carousel .custom-list .custom-item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(3) {
+    left: 67%;
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(4) {
+    left: calc(67% + 200px);
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(5) {
+    left: calc(67% + 400px);
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(6) {
+    left: calc(67% + 600px);
+}
+
+.custom-carousel .custom-list .custom-item:nth-child(n+7) {
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+.custom-list .custom-item .custom-content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.custom-list .custom-item:nth-child(2) .custom-content {
+    display: block;
+}
+
+.custom-content .custom-title {
+    font-size: 100px;
+    text-transform: uppercase;
+    color: #14ff72cb;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0;
+    animation: custom-animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.custom-content .custom-name {
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    animation: custom-animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.custom-content .custom-des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+    opacity: 0;
+    animation: custom-animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.custom-content .custom-btn {
+    margin-left: 5px;
+    opacity: 0;
+    animation: custom-animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+/* Modification pour le bouton "View More" */
+.custom-content .custom-btn button:nth-child(1) {
+    margin-right: 15px;
+    background-color: rgba(255, 255, 255, 0.1); /* Arrière-plan blanc semi-transparent */
+    color: #fff; /* Texte blanc */
+    border: 2px solid #fff; /* Bordure blanche */
+    transition: background-color 0.3s, color 0.3s; /* Transition lisse */
+}
+
+.custom-content .custom-btn button:nth-child(1):hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Légèrement plus opaque au survol */
+    color: #14ff72cb; /* Change la couleur du texte en vert au survol */
+    border-color: #fff; /* Garde la bordure blanche */
+}
+
+/* Règle existante pour le bouton "Subscribe" */
+.custom-content .custom-btn button:nth-child(2) {
+    background: transparent;
+    color: #14ff72cb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.custom-content .custom-btn button:nth-child(2):hover {
+    background-color: #14ff72cb;
+    color: #fff;
+    border-color: #14ff72cb;
+}
+
+@keyframes custom-animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Custom arrows */
+.custom-arrows {
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.custom-arrows button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.custom-arrows button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Custom time running */
+.custom-carousel .custom-timeRunning {
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #14ff72cb;
+    left: 0;
+    top: 0;
+    animation: custom-runningTime 7s linear 1 forwards;
+}
+
+@keyframes custom-runningTime {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 999px) {
+    .custom-list .custom-item .custom-content {
+        left: 50px;
+    }
+
+    .custom-content .custom-title, .custom-content .custom-name {
+        font-size: 70px;
+    }
+
+    .custom-content .custom-des {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .custom-list .custom-item .custom-content {
+        top: 40%;
+    }
+
+    .custom-content .custom-title, .custom-content .custom-name {
+        font-size: 45px;
+    }
+
+    .custom-content .custom-btn button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

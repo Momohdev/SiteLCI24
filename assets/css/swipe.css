@@ -1,0 +1,142 @@
+.trusted-companies-section {
+  padding-block: min(20vh, 3rem); /* Conserve un bon padding */
+  width: calc(min(120rem, 95%)); /* Largeur ajustée */
+  margin-inline: auto;
+  color: #111;
+}
+
+.trusted-companies-section h2 {
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  font-size: clamp(4rem, 3.8125rem + 1.5vw, 5rem);
+}
+
+.trusted-companies-section a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.trusted-companies-container {
+  margin-top: 4em; /* Espacement au-dessus des cartes */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Trois colonnes de taille égale */
+  gap: 12rem; /* Augmentation de l'espacement entre les cartes */
+}
+
+.trusted-company-card ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem; /* Espacement entre les éléments de la liste */
+}
+
+.trusted-company-card ul li {
+  text-transform: uppercase;
+  background: var(--clr-tag);
+  color: #282828;
+  font-weight: 700;
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+}
+
+.trusted-company-content {
+  padding: 1.75rem 1.25rem; /* Ajusté pour s'adapter à la nouvelle taille de la carte */
+}
+
+.trusted-company-content h3 {
+  text-transform: capitalize;
+  font-size: clamp(3rem, 2.8909rem + 0.7364vw, 3.5rem);
+}
+
+.trusted-company-content p {
+  margin: 1.5rem 0 2rem;
+  color: #565656;
+  font-size: 1.75rem;
+}
+
+.trusted-company-card-inner {
+  position: relative;
+  width: inherit;
+  height: 32rem; /* Hauteur de la carte */
+  background: var(--clr);
+  border-radius: 2rem;
+  border-bottom-right-radius: 0;
+  overflow: hidden;
+}
+
+.trusted-company-box {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.trusted-company-imgBox {
+  position: absolute;
+  inset: 0;
+}
+
+.trusted-company-imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trusted-company-icon {
+  position: absolute;
+  bottom: -0.75rem;
+  right: -0.75rem;
+  width: 10rem;
+  height: 10rem;
+  background: var(--clr);
+  border-top-left-radius: 50%;
+}
+
+.trusted-company-icon:hover .trusted-company-iconBox {
+  transform: scale(1.15);
+}
+
+.trusted-company-icon::before {
+  position: absolute;
+  content: "";
+  bottom: 0.75rem;
+  left: -2rem;
+  background: transparent;
+  width: 2rem;
+  height: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0.5rem 0.5rem 0 0.5rem #fff;
+}
+
+.trusted-company-icon::after {
+  position: absolute;
+  content: "";
+  top: -2rem;
+  right: 0.75rem;
+  background: transparent;
+  width: 2rem;
+  height: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-shadow: 0.5rem 0.5rem 0 0.5rem var(--clr);
+}
+
+.trusted-company-iconBox {
+  position: absolute;
+  inset: 1.5rem;
+  background: #282828;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.trusted-company-iconBox span {
+  color: #fff;
+  font-size: 3rem;
+}
